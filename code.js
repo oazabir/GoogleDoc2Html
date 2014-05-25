@@ -61,7 +61,24 @@ function processItem(item, listCounters, images) {
   var prefix = "", suffix = "";
 
   if (item.getType() == DocumentApp.ElementType.PARAGRAPH) {
-    prefix = "<p>", suffix = "</p>";
+    switch (item.getHeading()) {
+        // Add a # for each heading level. No break, so we accumulate the right number.
+      case DocumentApp.ParagraphHeading.HEADING6: 
+        prefix = "<h6>", suffix = "</h6>"; break;
+      case DocumentApp.ParagraphHeading.HEADING5: 
+        prefix = "<h5>", suffix = "</h5>"; break;
+      case DocumentApp.ParagraphHeading.HEADING4:
+        prefix = "<h4>", suffix = "</h4>"; break;
+      case DocumentApp.ParagraphHeading.HEADING3:
+        prefix = "<h3>", suffix = "</h3>"; break;
+      case DocumentApp.ParagraphHeading.HEADING2:
+        prefix = "<h2>", suffix = "</h2>"; break;
+      case DocumentApp.ParagraphHeading.HEADING1:
+        prefix = "<h1>", suffix = "</h1>"; break;
+      default: 
+        prefix = "<p>", suffix = "</p>";
+    }
+
     if (item.getNumChildren() == 0)
       return "";
   }
