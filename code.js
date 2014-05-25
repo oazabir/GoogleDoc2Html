@@ -5,7 +5,6 @@ function ConvertGoogleDocToCleanHtml() {
   var images = [];
   var listCounters = {};
 
-  Logger.log(numChildren);
   // Walk through all the child elements of the body.
   for (var i = 0; i < numChildren; i++) {
     var child = body.getChild(i);
