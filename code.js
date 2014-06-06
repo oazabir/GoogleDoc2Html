@@ -160,7 +160,10 @@ function processText(item, output) {
 
   if (indices.length <= 1) {
     // Assuming that a whole para fully italic is a quote
-    if(item.isItalic()) {
+    if(item.isBold()) {
+      output.push('<b>' + text + '</b>');
+    }
+    else if(item.isItalic()) {
       output.push('<blockquote>' + text + '</blockquote>');
     }
     else if (text.trim().indexOf('http://') == 0) {
