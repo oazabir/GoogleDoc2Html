@@ -36,7 +36,8 @@ function emailHtml(html, images) {
      to: Session.getActiveUser().getEmail(),
      subject: name,
      htmlBody: html,
-     inlineImages: inlineImages
+     inlineImages: inlineImages,
+     attachments: attachments
    });
 }
 
