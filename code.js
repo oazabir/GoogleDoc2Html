@@ -99,7 +99,7 @@ function processItem(item, listCounters, images) {
       if (gt === DocumentApp.GlyphType.BULLET
           || gt === DocumentApp.GlyphType.HOLLOW_BULLET
           || gt === DocumentApp.GlyphType.SQUARE_BULLET) {
-        prefix = '<ul class="small"><li>', suffix = "</li>";
+        prefix = '<ul><li>', suffix = "</li>";
 
           suffix += "</ul>";
         }
@@ -162,7 +162,7 @@ function processText(item, output) {
   if (indices.length <= 1) {
     // Assuming that a whole para fully italic is a quote
     if(item.isBold()) {
-      output.push('<b>' + text + '</b>');
+      output.push('<strong>' + text + '</strong>');
     }
     else if(item.isItalic()) {
       output.push('<blockquote>' + text + '</blockquote>');
@@ -188,7 +188,7 @@ function processText(item, output) {
         output.push('<i>');
       }
       if (partAtts.BOLD) {
-        output.push('<b>');
+        output.push('<strong>');
       }
       if (partAtts.UNDERLINE) {
         output.push('<u>');
@@ -211,7 +211,7 @@ function processText(item, output) {
         output.push('</i>');
       }
       if (partAtts.BOLD) {
-        output.push('</b>');
+        output.push('</strong>');
       }
       if (partAtts.UNDERLINE) {
         output.push('</u>');
