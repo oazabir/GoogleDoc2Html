@@ -64,9 +64,9 @@ function processItem(item, listCounters, images) {
   if (item.getType() == DocumentApp.ElementType.PARAGRAPH) {
     switch (item.getHeading()) {
         // Add a # for each heading level. No break, so we accumulate the right number.
-      case DocumentApp.ParagraphHeading.HEADING6: 
+      case DocumentApp.ParagraphHeading.HEADING6:
         prefix = "<h6>", suffix = "</h6>"; break;
-      case DocumentApp.ParagraphHeading.HEADING5: 
+      case DocumentApp.ParagraphHeading.HEADING5:
         prefix = "<h5>", suffix = "</h5>"; break;
       case DocumentApp.ParagraphHeading.HEADING4:
         prefix = "<h4>", suffix = "</h4>"; break;
@@ -76,7 +76,7 @@ function processItem(item, listCounters, images) {
         prefix = "<h2>", suffix = "</h2>"; break;
       case DocumentApp.ParagraphHeading.HEADING1:
         prefix = "<h1>", suffix = "</h1>"; break;
-      default: 
+      default:
         prefix = "<p>", suffix = "</p>";
     }
 
@@ -202,6 +202,9 @@ function processText(item, output) {
       }
       else if (partText.trim().indexOf('http://') == 0) {
         output.push('<a href="' + partText + '" rel="nofollow">' + partText + '</a>');
+      }
+      else if (partAtts.LINK_URL) {
+        output.push('<a href="' + partAtts.LINK_URL + '" rel="nofollow">' + partText + '</a>');
       }
       else {
         output.push(partText);
