@@ -112,20 +112,21 @@ function processItem(item, listCounters, images) {
       prefix = "<li>";
       suffix = "</li>";
     }
-
-    if (item.isAtDocumentEnd() || item.getNextSibling().getType() != DocumentApp.ElementType.LIST_ITEM) {
-      if (gt === DocumentApp.GlyphType.BULLET
-          || gt === DocumentApp.GlyphType.HOLLOW_BULLET
-          || gt === DocumentApp.GlyphType.SQUARE_BULLET) {
-        suffix += "</ul>";
+    
+    if (item && item.getNextSibling()) {
+      if (item.isAtDocumentEnd() || item.getNextSibling().getType() != DocumentApp.ElementType.LIST_ITEM) {
+        if (gt === DocumentApp.GlyphType.BULLET
+            || gt === DocumentApp.GlyphType.HOLLOW_BULLET
+            || gt === DocumentApp.GlyphType.SQUARE_BULLET) {
+          suffix += "</ul>";
+        }
+        else {
+          // Ordered list (<ol>):
+          suffix += "</ol>";
+        }
       }
-      else {
-        // Ordered list (<ol>):
-        suffix += "</ol>";
-      }
-
     }
-
+ 
     counter++;
     listCounters[key] = counter;
   }
