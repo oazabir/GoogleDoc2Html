@@ -170,6 +170,9 @@ function processText(item, output) {
     else if (text.trim().indexOf('http://') == 0) {
       output.push('<a href="' + text + '" rel="nofollow">' + text + '</a>');
     }
+    else if (text.trim().indexOf('https://') == 0) {
+      output.push('<a href="' + text + '" rel="nofollow">' + text + '</a>');
+    }
     else {
       output.push(text);
     }
@@ -201,6 +204,9 @@ function processText(item, output) {
         output.push('<sup>' + partText + '</sup>');
       }
       else if (partText.trim().indexOf('http://') == 0) {
+        output.push('<a href="' + partText + '" rel="nofollow">' + partText + '</a>');
+      }
+      else if (partText.trim().indexOf('https://') == 0) {
         output.push('<a href="' + partText + '" rel="nofollow">' + partText + '</a>');
       }
       else {
