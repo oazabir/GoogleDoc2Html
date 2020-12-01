@@ -14,4 +14,4 @@
  6. You will get an email at your Google Account containing the HTML
     output of the Google Doc with inline images.
 
-  [1]: https://raw.githubusercontent.com/oazabir/GoogleDoc2Html/master/code.js
+  [1]: https://raw.githubusercontent.com/thejimbirch/GoogleDoc2Html/master/code.js
